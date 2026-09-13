@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 #include <gif_lib.h>
 
 // Global error flag on >=giflib-4.2 before giflib-5.0

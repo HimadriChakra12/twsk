@@ -1,4 +1,4 @@
-# Copy this to ~/.config/skippy-xd/skippy-xd.rc and edit it to your liking
+# Copy this to ~/.config/twsk/twsk.rc and edit it to your liking
 #
 # Notes:
 #
@@ -43,7 +43,7 @@ useNetWMFullscreen = true
 ignoreSkipTaskbar = true
 updateFreq = 10.0
 lazyTrans = false
-pipePath = /tmp/skippy-xd-fifo
+pipePath = /tmp/twsk-fifo
 movePointerOnStart = true
 movePointerOnSelect = true
 movePointerOnRaise = true

@@ -20,7 +20,7 @@
 #ifndef SKIPPY_CONFIG_H
 #define SKIPPY_CONFIG_H
 
-#include "skippy.h"
+#include "twsk.h"
 #include <strings.h>
 #include <ctype.h>
 

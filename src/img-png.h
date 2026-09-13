@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 
 void
 spng_about(FILE *os);

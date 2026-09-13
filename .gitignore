@@ -11,7 +11,7 @@
 # install-sh
 # missing
 # stamp-h1
-skippy-xd
+twsk
 *.o
 build/
 test-progs/
@@ -24,7 +24,7 @@ test-progs/
 /core
 /*.core
 oprofile_data/
-skippy-xd.plist
+twsk.plist
 callgrind.out.*
 man/*.html
 man/*.1

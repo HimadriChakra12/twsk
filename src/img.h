@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 
 typedef struct {
 	XRectangle rect;

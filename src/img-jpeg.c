@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 #include <jpeglib.h>
 
 pictw_t *

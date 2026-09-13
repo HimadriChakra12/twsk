@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 #include <png.h>
 #include <zlib.h>
 #define SPNG_SIGBYTES 8

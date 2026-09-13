@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include "skippy.h"
+#include "twsk.h"
 
 Atom
 	/* Root pixmap / wallpaper atoms */
@@ -720,7 +720,7 @@ wm_wid_set_info(session_t *ps, Window wid, const char *name,
 		Atom window_type) {
 	// Set window name
 	{
-		char *textcpy = mstrjoin("skippy-xd ", name);
+		char *textcpy = mstrjoin("twsk ", name);
 		{
 			XTextProperty text_prop = { };
 			if (Success == XmbTextListToTextProperty(ps->dpy, &textcpy, 1,
@@ -735,8 +735,8 @@ wm_wid_set_info(session_t *ps, Window wid, const char *name,
 	// Set window class
 	{
 		XClassHint *classh = allocchk(XAllocClassHint());
-		classh->res_name = "skippy-xd";
-		classh->res_class = "skippy-xd";
+		classh->res_name = "twsk";
+		classh->res_class = "twsk";
 		XSetClassHint(ps->dpy, wid, classh);
 		XFree(classh);
 	}

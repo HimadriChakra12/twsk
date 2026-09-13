@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include "skippy.h"
+#include "twsk.h"
 
 /* from 'uncover': */
 static Visual *
@@ -59,7 +59,7 @@ mainwin_create(session_t *ps) {
 	XRenderColor clear;
 
 	// Get ARGB visual.
-	// FIXME: Move this to skippy.c?
+	// FIXME: Move this to twsk.c?
 	if (!ps->argb_visual)
 		ps->argb_visual = find_argb_visual(dpy, ps->screen);
 

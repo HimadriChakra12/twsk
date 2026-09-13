@@ -18,7 +18,7 @@
  */
 
 /**
- * @file skippy.h
+ * @file twsk.h
  *
  * @brief Global header.
  */

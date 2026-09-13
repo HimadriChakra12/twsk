@@ -3,7 +3,7 @@ BINDIR ?= ${PREFIX}/bin
 
 CC ?= gcc
 
-SRCS_RAW = skippy wm dlist mainwin clientwin layout focus config tooltip img img-xlib
+SRCS_RAW = twsk wm dlist mainwin clientwin layout focus config tooltip img img-xlib
 PACKAGES = x11 xft xrender xcomposite xdamage xfixes
 
 # === Options ===
@@ -46,31 +46,31 @@ INCS = $(shell pkg-config --cflags $(PACKAGES))
 LIBS += -lm $(shell pkg-config --libs $(PACKAGES))
 
 # === Version string ===
-SKIPPYXD_VERSION ?= git-$(shell git describe --always --dirty)-$(shell git log -1 --date=short --pretty=format:%cd)
-CPPFLAGS += -DSKIPPYXD_VERSION="\"${SKIPPYXD_VERSION}\""
+TWSK_VERSION ?= git-$(shell git describe --always --dirty)-$(shell git log -1 --date=short --pretty=format:%cd)
+CPPFLAGS += -DTWSK_VERSION="\"${TWSK_VERSION}\""
 
 # === Recipes ===
 EXESUFFIX =
-BINS = skippy-xd${EXESUFFIX}
+BINS = twsk${EXESUFFIX}
 SRCS = $(foreach name,$(SRCS_RAW),src/$(name).c)
 HDRS = $(foreach name,$(SRCS_RAW),src/$(name).h)
 OBJS = $(foreach name,$(SRCS_RAW),$(name).o)
 
-.DEFAULT_GOAL := skippy-xd${EXESUFFIX}
+.DEFAULT_GOAL := twsk${EXESUFFIX}
 
 %.o: src/%.c ${HDRS}
 	${CC} ${INCS} ${CFLAGS} ${CPPFLAGS} -c src/$*.c
 
-skippy-xd${EXESUFFIX}: ${OBJS}
-	${CC} ${LDFLAGS} -o skippy-xd${EXESUFFIX} ${OBJS} ${LIBS}
+twsk${EXESUFFIX}: ${OBJS}
+	${CC} ${LDFLAGS} -o twsk${EXESUFFIX} ${OBJS} ${LIBS}
 
 clean:
 	rm -f ${BINS} ${OBJS} src/.clang_complete
 
-install: ${BINS} skippy-xd.sample.rc
+install: ${BINS} twsk.sample.rc
 	install -d "${DESTDIR}${BINDIR}/" "${DESTDIR}/etc/xdg/"
 	install -m 755 ${BINS} "${DESTDIR}${BINDIR}/"
-	install -m 644 skippy-xd.sample.rc "${DESTDIR}/etc/xdg/skippy-xd.rc"
+	install -m 644 twsk.sample.rc "${DESTDIR}/etc/xdg/twsk.rc"
 
 uninstall:
 	# Should configuration file be removed?

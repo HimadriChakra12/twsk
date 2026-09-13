@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include "skippy.h"
+#include "twsk.h"
 #include <errno.h>
 #include <locale.h>
 #include <getopt.h>
@@ -534,7 +534,7 @@ ev_dump(session_t *ps, const MainWin *mw, const XEvent *ev) {
 }
 
 static bool
-skippy_run_init(MainWin *mw, Window leader) {
+twsk_run_init(MainWin *mw, Window leader) {
 	session_t *ps = mw->ps;
 
 	// Do this window before main window gets mapped
@@ -620,7 +620,7 @@ mainloop(session_t *ps, bool activate_on_start) {
 		if (!mw && activate) {
 			assert(ps->mainwin);
 			activate = false;
-			if (skippy_run_init(ps->mainwin, None)) {
+			if (twsk_run_init(ps->mainwin, None)) {
 				last_rendered = time_in_millis();
 				mw = ps->mainwin;
 				refocus = false;
@@ -945,8 +945,8 @@ xerror(Display *dpy, XErrorEvent *ev) {
 
 static void
 show_help() {
-	fputs("skippy-xd (" SKIPPYXD_VERSION ")\n"
-			"Usage: skippy-xd [command]\n\n"
+	fputs("twsk (" SKIPPYXD_VERSION ")\n"
+			"Usage: twsk [command]\n\n"
 			"The available commands are:\n"
 			"  --config                    - Read the specified configuration file.\n"
 			"  --start-daemon              - starts the daemon running.\n"
@@ -1019,9 +1019,9 @@ fexists(const char *path) {
  */
 static inline char *
 get_cfg_path(void) {
-	static const char *PATH_CONFIG_HOME_SUFFIX = "/skippy-xd/skippy-xd.rc";
+	static const char *PATH_CONFIG_HOME_SUFFIX = "/twsk/twsk.rc";
 	static const char *PATH_CONFIG_HOME = "/.config";
-	static const char *PATH_CONFIG_SYS_SUFFIX = "/skippy-xd.rc";
+	static const char *PATH_CONFIG_SYS_SUFFIX = "/twsk.rc";
 	static const char *PATH_CONFIG_SYS = "/etc/xdg";
 
 	char *path = NULL;
@@ -1198,7 +1198,7 @@ int main(int argc, char *argv[]) {
 		// Read configuration into ps->o, because searching all the time is much
 		// less efficient, may introduce inconsistent default value, and
 		// occupies a lot more memory for non-string types.
-		ps->o.pipePath = mstrdup(config_get(config, "general", "pipePath", "/tmp/skippy-xd-fifo"));
+		ps->o.pipePath = mstrdup(config_get(config, "general", "pipePath", "/tmp/twsk-fifo"));
 		ps->o.normal_tint = mstrdup(config_get(config, "normal", "tint", "black"));
 		ps->o.highlight_tint = mstrdup(config_get(config, "highlight", "tint", "#101020"));
 		ps->o.tooltip_border = mstrdup(config_get(config, "tooltip", "border", "#e0e0e0"));

@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 #include <float.h>
 
 pictw_t *

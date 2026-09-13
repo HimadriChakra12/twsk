@@ -1,4 +1,4 @@
-#include "skippy.h"
+#include "twsk.h"
 
 pictw_t *
 sgif_read(session_t *ps, const char *path);
